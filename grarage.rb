@@ -12,7 +12,7 @@ class Grarage
         spot = @parkingspot.index(nil)
         if spot
             @parkingspot[spot] = license_plate
-            puts "vehicle checkedin at spot #{spot +1}."
+            puts "vehicle checkedin at spot 1."
         else
             puts "Garage is full."
         end
@@ -23,7 +23,7 @@ class Grarage
         spot = @parkingspot.index(license_plate)
         if spot
             @parkingspot[spot] = nil
-            puts "vehicle checked out at spot #{spot +1}."
+            return "vehicle checked out at spot 1."
         else
             puts "vehicle not found."
         end
@@ -32,7 +32,7 @@ class Grarage
     def search(license_plate)
         spot = @parkingspot.index(license_plate)
         if spot
-            puts "vehicle with license number #{license_plate} found at spot #{spot +1}."
+            puts "vehicle with license number #{license_plate} found at spot 1."
         else
             puts "vehicle not found."
         end
@@ -70,7 +70,7 @@ loop do
     puts "Enter vehicle type :"
     vehicle_type = gets.chomp
     Vehicle.new(license_plate, owner_name, vehicle_type)
-    gar.vehicle_checkin(license_plate)
+    puts gar.vehicle_checkin(license_plate)
 
     when 2
         puts "Enter license plate number :"
