@@ -1,7 +1,7 @@
 ## Employee Management Project
-This is a project that I created to practice my skills in Java. It is a simple employee management
+This is a project that I created to practice my skills in Ruby. It is a simple employee management
 
-** Commands **
+## Commands
 
 1. bundle install
 2. ruby employee.rb
