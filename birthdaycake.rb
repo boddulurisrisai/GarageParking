@@ -20,7 +20,7 @@ Birthday cake with 10 blown out candles
 
 =end
 
-require "active_support/all"
+#require "active_support/all"
 
 class BirthdayCake
   attr_accessor :age, :lit
@@ -39,7 +39,7 @@ class BirthdayCake
   end
 
   def greet
-    "Happy #{self.age.ordinalize} Birdday!"
+    "Happy #{self.age}th Birthday!"
   end
 
   def sing
@@ -50,17 +50,18 @@ class BirthdayCake
     "Birthday cake with #{self.age} #{candles_status} candles"
   end
 
-  def BirthdayCake.celebrate(age)
-    birthday_cake = Birthdaycake.new(age)
+  def self.celebrate(age)
+    birthday_cake = self.new(age)
     puts birthday_cake.greet
     puts birthday_cake.to_s
     puts "Lighting candles..."
-    birthday_cake.light_candles
+    birthday_cake.lit = true
+    birthday_cake.candles_status
     puts birthday_cake.to_s
     puts "Singing happy birthday..."
-    puts birthday_cake.sign
+    puts birthday_cake.sing
     puts "Blowing out candles..."
-    birth_cake.blow_out_candles
+    birthday_cake.lit = false
     puts birthday_cake.to_s
 
     birthday_cake
