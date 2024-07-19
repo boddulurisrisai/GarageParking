@@ -12,9 +12,9 @@ class Grarage
         spot = @parkingspot.index(nil)
         if spot
             @parkingspot[spot] = license_plate
-            puts "vehicle checkedin at spot 1."
+            return "vehicle checkedin at spot 1."
         else
-            puts "Garage is full."
+            return "Garage is full."
         end
 
     end
@@ -25,66 +25,62 @@ class Grarage
             @parkingspot[spot] = nil
             return "vehicle checked out at spot 1."
         else
-            puts "vehicle not found."
+            return "vehicle not found."
         end
     end
 
     def search(license_plate)
         spot = @parkingspot.index(license_plate)
         if spot
-            puts "vehicle with license number #{license_plate} found at spot 1."
+            return "vehicle with license number #{license_plate} found at spot 1."
         else
-            puts "vehicle not found."
+            return "vehicle not found."
         end
     end
 
     def view_available_slots
         available = @parkingspot.count(nil)
-        puts "There are #{available} available parking spots."
+        return "There are #{available} available parking spots."
     end
 
 end
 
 
 gar = Grarage.new(10)
-puts "Hi"
 
-loop do 
-    puts "1. Checkin the vehicle"
-    puts "2. Checkout the vehicle"
-    puts "3. Search the vehicle"
-    puts "4. View available slots"
-    puts "5. Exit"
-    puts "Enter your choice..."
+puts "1. Checkin the vehicle"
+puts "2. Checkout the vehicle"
+puts "3. Search the vehicle"
+puts "4. View available slots"
+puts "5. Exit"
+puts "Enter your choice..."
 
-    option = gets.chomp.to_i
+option = gets.chomp.to_i
 
-    
 
-    case option
-    when 1
+
+case option
+when 1
+puts "Enter license plate number :"
+license_plate = gets.chomp
+puts "Enter owner name :"
+owner_name = gets.chomp
+puts "Enter vehicle type :"
+vehicle_type = gets.chomp
+Vehicle.new(license_plate, owner_name, vehicle_type)
+puts gar.vehicle_checkin(license_plate)
+
+when 2
     puts "Enter license plate number :"
     license_plate = gets.chomp
-    puts "Enter owner name :"
-    owner_name = gets.chomp
-    puts "Enter vehicle type :"
-    vehicle_type = gets.chomp
-    Vehicle.new(license_plate, owner_name, vehicle_type)
-    puts gar.vehicle_checkin(license_plate)
+    puts gar.vehicle_checkout(license_plate)
 
-    when 2
-        puts "Enter license plate number :"
-        license_plate = gets.chomp
-        gar.vehicle_checkout(license_plate)
-
-    when 3
-        gar.search(license_plate)
-    when 4
-        gar.view_available_slots
-    when 5
-        break
-    else
-        puts "Invalid option, Please try again later"
-    end
+when 3
+    puts gar.search(license_plate)
+when 4
+    puts gar.view_available_slots
+else
+    puts "Invalid option, Please try again later"
 end
+
 

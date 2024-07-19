@@ -6,8 +6,8 @@ This is a simple parking garage simulator. It is a console application that allo
 
 ## Commands
 
-'''sh ruby garage.rb '''
+ ```sh ruby garage.rb  ```
 
-'''sh ruby tests/test_garage.rb '''
+ ```sh ruby tests/test_garage.rb  ```
 
 
